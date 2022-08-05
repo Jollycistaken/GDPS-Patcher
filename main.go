@@ -27,11 +27,10 @@ func main() {
 		panic(err)
 	}
 	url := strings.Replace(os.Args[2], "http://", "", -1)
-	boom := b64.StdEncoding.EncodeToString([]byte("http://www.boomlings.com/database"))
 	yoururl := b64.StdEncoding.EncodeToString([]byte("http://" + url))
 	var EZ string = string(buffer)
 	EZ = strings.Replace(EZ, "www.boomlings.com/database", url, -1)
-	EZ = strings.Replace(EZ, boom, yoururl, -1)
+	EZ = strings.Replace(EZ, "aHR0cDovL3d3dy5ib29tbGluZ3MuY29tL2RhdGFiYXNl", yoururl, -1)
 
 	file.Close()
 	err = os.Remove(os.Args[1])
