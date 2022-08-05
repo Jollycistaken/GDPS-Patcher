@@ -38,7 +38,7 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	file, err = os.Create("GeometryDash.exe")
+	file, err = os.Create(os.Args[1])
 	if err != nil {
 		os.Exit(1)
 	}
