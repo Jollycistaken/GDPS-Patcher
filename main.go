@@ -61,19 +61,16 @@ func main() {
 		makeError(err.Error())
 	}
 	exeBody := string(buffer)
-	if strings.Contains(url, "/database") {
-		if len(url) != len("www.boomlings.com/database") {
-			makeError("Hex editing would corrupt the exe because your url is either too short or long!")
-		}
+	if len(url) == len("www.boomlings.com/database") {
 		exeBody = strings.Replace(exeBody, "www.boomlings.com/database", url, -1)
 		exeBody = strings.Replace(exeBody, "aHR0cDovL3d3dy5ib29tbGluZ3MuY29tL2RhdGFiYXNl", b64Url, -1)
-	} else {
-		if len(url) != len("www.boomlings.com") {
-			makeError("Hex editing would corrupt the exe because your url is either too short or long!")
-		}
+	} else if len(url) == len("www.boomlings.com") {
 		exeBody = strings.Replace(exeBody, "www.boomlings.com", url, -1)
 		exeBody = strings.Replace(exeBody, "aHR0cDovL3d3dy5ib29tbGluZ3MuY29t", b64Url, -1)
+	} else {
+		makeError("Hex editing would corrupt the exe because your url is either too short or long!")
 	}
+
 	err = file.Close()
 	if err != nil {
 		makeError(err.Error())
