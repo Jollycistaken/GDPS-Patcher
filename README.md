@@ -2,7 +2,7 @@
 Patchs your gdps
 ## Usage
 
-Open the gdps exe and just follow the instructions
+Open the patcher exe and just follow the instructions
 
 if you are doing it for android then you can use the libcocos2dcpp.so file on the patcher instead of a exe
 
